@@ -1,0 +1,33 @@
+{
+  "name": "ecs-node",
+  "version": "1.0.0",
+  "description": "server of node on ecs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowke/ecs-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flowke/ecs-node/issues"
+  },
+  "homepage": "https://github.com/flowke/ecs-node#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "mysql": "^2.13.0",
+    "mysql2": "^1.2.0",
+    "orm": "^3.2.3",
+    "sequelize": "^3.30.2",
+    "string": "^3.3.3"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}
