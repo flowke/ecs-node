@@ -92,7 +92,6 @@ module.exports = class{
                 'collection_name',
                 'liked',
                 'user_id',
-
                 'viewer'
             ],
             include: {

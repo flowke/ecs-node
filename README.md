@@ -134,3 +134,55 @@ node index.js
   }
 }
 ```
+
+#### 4. 获取文章摘要列表
+
+接口详情:
+```js
+// 请求地址
+"/getPreview"
+
+// 请求参数:
+{
+  collection_id: "", // 文集 id
+  user_id: ""  // 用户 id
+}
+
+
+// 返回成功的 JSON 示例
+{
+
+}
+
+// 请求参数
+{
+  collection_id: "", // 文集 id
+  user_id: ""  // 用户 id
+}
+
+
+```
+
+#### 5. 获取作者信息
+
+接口详情:
+```js
+// 请求地址
+"/getAuthor"
+
+// 请求参数
+{
+  collection_id: "", // 文集 id
+  user_id: ""  // 用户 id
+}
+
+// 返回的 JSON 示例
+
+// 成功示例
+{
+  'id' : "",  // 用户id
+  'user_name': "",  //用户名
+  'avatar': "",  // 用户头像
+  'user_intro': ""  // 用户简介
+}
+```
