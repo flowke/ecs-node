@@ -8,7 +8,7 @@ module.exports = class{
 
         let userPromise =  user.find( {
 
-            attributes: ['user_passw' ],
+            attributes: [ 'id' ,'user_passw', 'user_intro' ],
             where: {
                 user_name: username
             },
@@ -16,24 +16,45 @@ module.exports = class{
             // raw: true
 
         }).then( ret => {
-
             // 如果find没找到, ret会是null
+            if(ret){
+                let {user_passw: passwRet, id, user_intro} = ret;
+                return {passwRet, id, user_intro};
+            };
 
-            return ret.user_passw ? ret.user_passw : ret ;
+            return null;
+
         });
 
         return userPromise;
     }
 
-    saveNameAndPassw( username, passw ){
+    getAuthor(){
+        return user.findAll({
+            attributes: [
+                'id', 'user_name', 'avatar', 'user_intro'
+            ]
+        });
+    }
+
+    saveNameAndPassw( username, passw, avatar ){
 
         let promise = user.create({
             user_name: username,
-            user_passw: passw
+            user_passw: passw,
+            avatar
         });
 
 
         return promise;
+    }
+
+    saveIntro(user_id, user_intro){
+        return user.update({user_intro},{
+            where: {
+                id: user_id
+            }
+        });
     }
 
 }

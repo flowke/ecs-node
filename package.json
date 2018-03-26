@@ -1,5 +1,5 @@
 {
-  "name": "ecs-node",
+  "name": "jianshu-back-end",
   "version": "1.0.0",
   "description": "server of node on ecs",
   "main": "index.js",

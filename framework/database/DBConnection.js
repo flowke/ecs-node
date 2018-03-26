@@ -10,7 +10,7 @@ sequelize.authenticate()
     console.log('connection has been established successfully')
 })
 .catch( err =>{
-    console.log(err)
+    console.log(err, 'in DBConnection')
 } );
 
 module.exports = sequelize;

@@ -5,7 +5,7 @@ const S = require('string');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
-let config = require(path.resolve(process.cwd(), 'src/config/config'));
+let config = require(path.resolve(process.cwd(), 'framework/config/config'));
 
 
 let app = express();
@@ -23,7 +23,7 @@ module.exports = class Initiate {
     }
 
     static initMiddleware(){
-        // app.use(express.static(GLOBALPATH.PUBLIC_PATH));
+        app.use(express.static(GLOBALPATH.PUBLIC_PATH));
         // 加载 bodyparser, 处理 post 数据
         app.use(bodyParser.urlencoded({extended: true}));
         // 跨域访问
@@ -35,9 +35,10 @@ module.exports = class Initiate {
         // about handlesession
         app.use(session({
             secret: "data_for_student",
-            proxy: true,
+            // proxy: true,
             resave: true,
-            saveUninitialized: true
+            saveUninitialized: true,
+            cookie: {  maxAge: 60*60 }
         }));
     }
 
@@ -57,7 +58,9 @@ module.exports = class Initiate {
                 return;
             }
 
-            let actionPath = path.resolve(GLOBALPATH.ACTION_PATH, S(a).capitalize().s+ 'Action.js');
+             a = a.charAt(0).toUpperCase() + a.slice(1)
+
+            let actionPath = path.resolve(GLOBALPATH.ACTION_PATH, a + 'Action.js');
 
             // res.send(controllerPath)
 
@@ -73,7 +76,6 @@ module.exports = class Initiate {
 
             action.apply(null, [req,res]);
         } );
-
     }
 
     static defineGlobalVar(){

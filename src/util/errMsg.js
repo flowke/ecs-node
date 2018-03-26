@@ -9,7 +9,7 @@ module.exports = (err)=>{
             break;
 
         default:
-            msg = err.errors[0].message ;
+            msg = err ;
     };
 
     return msg;

@@ -28,6 +28,13 @@ let User = db.define(
                 }
             }
         },
+        user_intro: {
+            type: Sequelize.STRING,
+            defaultValue: ''
+        },
+        avatar: {
+            type: Sequelize.STRING
+        },
         user_passw: {
             type: Sequelize.STRING,
             validate: {
